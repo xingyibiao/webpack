@@ -1,8 +1,9 @@
+/* eslint-disable */
 /*
  * @Author: xingyibiao 
  * @Date: 2017-09-20 11:12:52 
  * @Last Modified by: xingyibiao
- * @Last Modified time: 2017-09-21 10:34:46
+ * @Last Modified time: 2017-09-21 11:15:42
  */
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
