@@ -3,13 +3,14 @@
  * @Author: xingyibiao 
  * @Date: 2017-09-20 11:12:52 
  * @Last Modified by: xingyibiao
- * @Last Modified time: 2017-09-21 11:15:42
+ * @Last Modified time: 2017-11-29 10:26:59
  */
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const utils = require('./utils')
+const config = require('../config')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -25,22 +26,39 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename:'index.html',
       template:'index.html'
+    }),
+    new ExtractTextPlugin({
+      filename: utils.assetsPath('css/[name].[contenthash].css'),
     })
   ],
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve(__dirname, 'dist')
+    path: config.build.assetsRoot,
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath
+  },
+  resolve: {
+    extensions: ['.js', '.json'],
+    alias: {
+      '@': resolve('src')
+    }
   },
   module: {
     rules: [
       {
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader'],
+        include: [resolve('src'), resolve('static')]
+      },
+      {
         test: /\.scss$/,
-        /* use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        }) */
-        loader: ['style-loader', 'css-loader', 'sass-loader'],
-        include: resolve('src')
+        use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader']
+				})
+        // loader: ['style-loader', 'css-loader', 'sass-loader'],
+        // include: resolve('src')
       },
       {
         test: /\.js$/,
