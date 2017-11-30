@@ -2,7 +2,7 @@
  * @Author: xingyibiao 
  * @Date: 2017-09-20 11:24:02 
  * @Last Modified by: xingyibiao
- * @Last Modified time: 2017-11-30 13:38:43
+ * @Last Modified time: 2017-11-30 14:37:29
  */
 const webpack = require('webpack')
 const merge = require('webpack-merge')
@@ -61,6 +61,22 @@ module.exports = merge(common, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: function (module, count) {
+        return (
+          module.resource &&
+          /\.js$/.test(module.resource) &&
+          module.resource.indexOf(
+            path.join(__dirname, '../node_modules')
+          ) === 0
+        )
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
     }),
   ]
 })
