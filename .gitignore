@@ -1,6 +1,5 @@
-/*
-!.gitignore
-!/build/
-!/config/
-!package.json
-!eslintrc.js
+/node_modules
+/src
+/static
+/dist
+yarn-error.log

@@ -3,7 +3,7 @@
  * @Author: xingyibiao 
  * @Date: 2017-09-20 11:12:52 
  * @Last Modified by: xingyibiao
- * @Last Modified time: 2017-11-29 10:26:59
+ * @Last Modified time: 2017-11-29 17:01:12
  */
 const path = require('path')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
@@ -28,7 +28,7 @@ module.exports = {
       template:'index.html'
     }),
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css'),
+      filename: utils.assetsPath('css/[name].[contenthash:8].css'),
     })
   ],
   output: {

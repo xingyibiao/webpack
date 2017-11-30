@@ -2,7 +2,7 @@
  * @Author: xingyibiao 
  * @Date: 2017-09-20 11:24:02 
  * @Last Modified by: xingyibiao
- * @Last Modified time: 2017-11-29 16:07:22
+ * @Last Modified time: 2017-11-29 17:02:07
  */
 const webpack = require('webpack')
 const merge = require('webpack-merge')
@@ -36,8 +36,8 @@ const cssLoader = {
 module.exports = merge(common, {
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+    filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash:8].js')
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   plugins: [
