@@ -2,7 +2,7 @@
  * @Author: xingyibiao 
  * @Date: 2017-09-20 11:24:02 
  * @Last Modified by: xingyibiao
- * @Last Modified time: 2017-11-29 17:02:07
+ * @Last Modified time: 2017-11-30 13:38:43
  */
 const webpack = require('webpack')
 const merge = require('webpack-merge')
@@ -44,8 +44,7 @@ module.exports = merge(common, {
     new webpack.DefinePlugin({
       'process.env': env
     }),
-    // new UglifyJSPlugin(),
-    // extractSass,
+    new UglifyJSPlugin(),
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
         safe: true
