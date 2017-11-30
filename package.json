@@ -12,8 +12,7 @@
     "clean-webpack-plugin": "^0.1.16",
     "eslint": "^4.7.1",
     "global": "^4.3.2",
-    "path": "^0.12.7",
-    "webpack": "2.6.0"
+    "path": "^0.12.7"
   },
   "eslintIgnore": [
     "build",
@@ -36,7 +35,7 @@
     "eslint-plugin-react": "^7.3.0",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.15.4",
-    "extract-text-webpack-plugin": "2.1.2",
+    "extract-text-webpack-plugin": "^3.0.2",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "http-proxy-middleware": "^0.17.4",
@@ -54,6 +53,7 @@
     "transform-runtime": "^0.0.0",
     "uglifyjs-webpack-plugin": "^1.1.0",
     "url-loader": "^0.5.9",
+    "webpack": "^3.8.1",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^2.7.1",
     "webpack-hot-middleware": "^2.19.1",
